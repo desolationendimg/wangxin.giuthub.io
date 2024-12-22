@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录 - 邮旅邮你</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            text-align: center;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .login-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .login-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>登录</h2>
+        <form id="loginForm">
+            <label for="username">用户名:</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">密码:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            <input type="submit" value="登录">
+        </form>
+    </div>
+
+    <script>
+        // 提交表单后移除登录界面
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // 阻止默认的表单提交行为
+            
+            // 获取用户名和密码
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+           
+            if (username && password) {
+                alert('欢迎, ' + username + '! 登录成功！');
+                
+                // 移除登录界面
+                document.body.innerHTML = ''; // 清空页面内容
+                // 跳转到主页面（mypage.html）
+                window.location.href = 'mypage.html';
+            } else {
+                alert('用户名和密码不能为空！');
+            }
+        });
+    </script>
+</body>
+</html>
